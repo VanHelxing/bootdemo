@@ -1,0 +1,39 @@
+#服务器配置
+server:
+  port: 8088
+  tomcat:
+    uri-encoding: UTF-8
+
+
+#项目配置
+spring:
+  application:
+    name: bootdemo
+
+  #数据库配置
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/bootdemo?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull
+    username: root
+    password: vanhx123456
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 100
+      auto-commit: true
+      idle-timeout: 3000
+      pool-name: HikariDataSource
+      max-lifetime: 1800000
+      connection-timeout: 3000
+      connection-test-query: select 1
+
+
+  #thymeleaf配置
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/views
+    suffix: .html
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
+
